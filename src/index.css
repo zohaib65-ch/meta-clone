@@ -1,0 +1,8 @@
+@tailwind base;
+@layer base {
+  html, body, * {
+    font-family: 'Montserrat' !important;
+  }
+}
+@tailwind components;
+@tailwind utilities;
