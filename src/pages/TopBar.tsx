@@ -1,9 +1,8 @@
-
-import type React from "react"
-import { useState, useEffect, useRef } from "react"
-import { Search, ShoppingCart, User, Globe, Menu, X, ChevronDown } from "lucide-react"
-import Whitelogo from "../assets/svg/logo.svg"
-import Skyler from "../assets/Skyler.png"
+import type React from "react";
+import { useState, useEffect, useRef } from "react";
+import { Search, ShoppingCart, User, Globe, Menu, X, ChevronDown } from "lucide-react";
+import Whitelogo from "../assets/svg/logo-white.svg";
+import Skyler from "../assets/Skyler.png";
 
 const menuItems = [
   {
@@ -34,15 +33,7 @@ const menuItems = [
       content: [
         {
           type: "links",
-          items: [
-            "Ray-Ban Meta overview",
-            "Shop all",
-            "Wayfarer",
-            "Skyler",
-            "Headliner",
-            "Charging Case",
-            "Certified refurbished",
-          ],
+          items: ["Ray-Ban Meta overview", "Shop all", "Wayfarer", "Skyler", "Headliner", "Charging Case", "Certified refurbished"],
         },
       ],
     },
@@ -74,16 +65,7 @@ const menuItems = [
       content: [
         {
           type: "links",
-          items: [
-            "Meta Quest overview",
-            "Meta Quest 3S",
-            "Meta Quest 3",
-            "Compare devices",
-            "Accessories",
-            "Play now. Pay later.",
-            "Meta Warranty Plus",
-            "Gift cards",
-          ],
+          items: ["Meta Quest overview", "Meta Quest 3S", "Meta Quest 3", "Compare devices", "Accessories", "Play now. Pay later.", "Meta Warranty Plus", "Gift cards"],
         },
       ],
     },
@@ -109,23 +91,13 @@ const menuItems = [
       content: [
         {
           type: "links",
-          items: [
-            "Shop all",
-            "Gaming",
-            "Entertainment",
-            "Fitness",
-            "Social",
-            "Family",
-            "Productivity",
-            "Mixed reality",
-            "Meta Horizon+",
-          ],
+          items: ["Shop all", "Gaming", "Entertainment", "Fitness", "Social", "Family", "Productivity", "Mixed reality", "Meta Horizon+"],
         },
       ],
     },
   },
   {
-    label: "Découvrir DIGITALY",
+    label: "Découvrir GULHAZ ",
     key: "découvrirDIGITALY",
     desktopContent: {
       layout: "grid grid-cols-3 max-w-4xl",
@@ -212,48 +184,48 @@ const menuItems = [
       ],
     },
   },
-]
+];
 
 const TopBar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [bgColor, setBgColor] = useState("bg-transparent text-white")
-  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({})
-  const timeoutRefs = useRef<Record<string, number | null>>({})
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [bgColor, setBgColor] = useState("bg-transparent text-white");
+  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
+  const timeoutRefs = useRef<Record<string, number | null>>({});
 
   const handleMouseEnter = (key: string) => {
-    if (timeoutRefs.current[key]) clearTimeout(timeoutRefs.current[key])
-    setOpenDropdowns((prev) => ({ ...prev, [key]: true }))
-  }
+    if (timeoutRefs.current[key]) clearTimeout(timeoutRefs.current[key]);
+    setOpenDropdowns((prev) => ({ ...prev, [key]: true }));
+  };
 
   const handleMouseLeave = (key: string) => {
     timeoutRefs.current[key] = setTimeout(() => {
-      setOpenDropdowns((prev) => ({ ...prev, [key]: false }))
-    }, 150)
-  }
+      setOpenDropdowns((prev) => ({ ...prev, [key]: false }));
+    }, 150);
+  };
 
   const handleToggleDropdown = (key: string) => {
-    setOpenDropdowns((prev) => ({ ...prev, [key]: !prev[key] }))
-  }
+    setOpenDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 0
-      setIsScrolled(scrolled)
+      const scrolled = window.scrollY > 0;
+      setIsScrolled(scrolled);
       if (scrolled) {
-        setBgColor("bg-black text-white")
+        setBgColor("bg-black text-white");
       } else {
-        setBgColor("bg-transparent text-white")
+        setBgColor("bg-transparent text-white");
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      Object.values(timeoutRefs.current).forEach((timeout) => timeout && clearTimeout(timeout))
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      Object.values(timeoutRefs.current).forEach((timeout) => timeout && clearTimeout(timeout));
+    };
+  }, []);
 
   const renderContent = (content: any[], isMobile = false) => (
     <>
@@ -263,11 +235,7 @@ const TopBar: React.FC = () => {
           {(section.type === "links" || section.type === "section") && (
             <div className={section.type === "links" ? "space-y-4" : "space-y-3"}>
               {section.items.map((item: string) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="block text-sm text-gray-900 font-medium hover:bg-gray-400 hover:text-gray-900 rounded-full px-2 py-1"
-                >
+                <a key={item} href="#" className="block text-sm text-gray-900 font-medium hover:bg-gray-400 hover:text-gray-900 rounded-full px-2 py-1">
                   {item}
                 </a>
               ))}
@@ -277,22 +245,16 @@ const TopBar: React.FC = () => {
             <div className="text-center">
               <img src={section.image || "/placeholder.svg"} alt={section.alt} className="w-40 h-30 mx-auto" />
               {section.description && <p className="text-sm text-gray-600 mb-2">{section.description}</p>}
-              <button className="text-sm font-medium text-gray-900 hover:bg-gray-400 hover:text-gray-900 rounded-full px-2 py-1">
-                {section.buttonText}
-              </button>
+              <button className="text-sm font-medium text-gray-900 hover:bg-gray-400 hover:text-gray-900 rounded-full px-2 py-1">{section.buttonText}</button>
             </div>
           )}
         </div>
       ))}
     </>
-  )
+  );
 
   const renderDropdown = (item: (typeof menuItems)[0], isMobile = false) => (
-    <div
-      className={isMobile ? "relative" : "relative"}
-      onMouseEnter={isMobile ? undefined : () => handleMouseEnter(item.key)}
-      onMouseLeave={isMobile ? undefined : () => handleMouseLeave(item.key)}
-    >
+    <div className={isMobile ? "relative" : "relative"} onMouseEnter={isMobile ? undefined : () => handleMouseEnter(item.key)} onMouseLeave={isMobile ? undefined : () => handleMouseLeave(item.key)}>
       <button
         className={`text-sm px-4 py-0.5 flex items-center ${
           isMobile
@@ -305,32 +267,22 @@ const TopBar: React.FC = () => {
         {isMobile && <ChevronDown size={14} className="ml-1" />}
       </button>
       {openDropdowns[item.key] && (
-        <div
-          className={
-            isMobile
-              ? "pl-4 mt-2 space-y-2"
-              : "fixed left-0 right-0 top-16 w-full bg-gray-100 border-t border-gray-200 shadow-lg z-40"
-          }
-        >
+        <div className={isMobile ? "pl-4 mt-2 space-y-2" : "fixed left-0 right-0 top-16 w-full bg-gray-100 border-t border-gray-200 shadow-lg z-40"}>
           <div className={isMobile ? "" : "max-w-7xl mx-auto px-8 py-8"}>
-            <div className={isMobile ? item.mobileContent.layout : item.desktopContent.layout}>
-              {renderContent(isMobile ? item.mobileContent.content : item.desktopContent.content, isMobile)}
-            </div>
+            <div className={isMobile ? item.mobileContent.layout : item.desktopContent.layout}>{renderContent(isMobile ? item.mobileContent.content : item.desktopContent.content, isMobile)}</div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgColor} ${isScrolled ? "backdrop-blur-xl border-b border-gray-200/50" : ""}`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgColor} ${isScrolled ? "backdrop-blur-xl border-b border-gray-200/50" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="hidden md:flex items-center space-x-4">
-              <img src={Whitelogo || "/placeholder.svg"} alt="Meta Logo" className="h-6" />
+              <img src={Whitelogo || "/placeholder.svg"} alt="Meta Logo" className="h-3" />
               {menuItems.slice(0, 3).map((item) => renderDropdown(item))}
             </div>
           </div>
@@ -383,7 +335,7 @@ const TopBar: React.FC = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;

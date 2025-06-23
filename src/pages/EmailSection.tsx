@@ -16,7 +16,7 @@ interface Option {
 const options: Option[] = [
   {
     id: 1,
-    title: "DIGITALY dévoile sa nouvelle app Minest",
+    title: "GULHAZ dévoile sa nouvelle app Minest",
     subtitle:
       "Une app destinée à réduire sa dépendance aux réseaux sociaux tout en améliorant sa productivité principalement destiné au étudiant il tente aujourd'hui...",
 
@@ -24,7 +24,7 @@ const options: Option[] = [
   },
   {
     id: 2,
-    title: "DIGITALY dévoile sa nouvelle app Minest",
+    title: "GULHAZ dévoile sa nouvelle app Minest",
     subtitle:
       "Une app destinée à réduire sa dépendance aux réseaux sociaux tout en améliorant sa productivité principalement destiné au étudiant il tente aujourd'hui...",
 
@@ -32,7 +32,7 @@ const options: Option[] = [
   },
   {
     id: 3,
-    title: "DIGITALY dévoile sa nouvelle app Minest",
+    title: "GULHAZ dévoile sa nouvelle app Minest",
     subtitle:
       "Une app destinée à réduire sa dépendance aux réseaux sociaux tout en améliorant sa productivité principalement destiné au étudiant il tente aujourd'hui...",
 
@@ -40,14 +40,14 @@ const options: Option[] = [
   },
   {
     id: 4,
-    title: "DIGITALY dévoile sa nouvelle app Minest",
+    title: "GULHAZ dévoile sa nouvelle app Minest",
     subtitle:
       "Une app destinée à réduire sa dépendance aux réseaux sociaux tout en améliorant sa productivité principalement destiné au étudiant il tente aujourd'hui...",
     backgroundImage: Image,
   },
   {
     id: 5,
-    title: "DIGITALY dévoile sa nouvelle app Minest",
+    title: "GULHAZ dévoile sa nouvelle app Minest",
     subtitle:
       "Une app destinée à réduire sa dépendance aux réseaux sociaux tout en améliorant sa productivité principalement destiné au étudiant il tente aujourd'hui...",
     backgroundImage: Image,
@@ -184,21 +184,20 @@ export default function EmailSection() {
           </div>
 
           {/* Navigation Arrows */}
-          {/* <button
+          <button
             onClick={prevSlide}
             className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-transparent"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-5 h-5" />
-          </button> */}
-{/* 
+          </button> 
           <button
             onClick={nextSlide}
             className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
             aria-label="Next slide"
           >
             <ChevronRight className="w-5 h-5" />
-          </button> */}
+          </button>
 
           {/* Dots Indicator */}
           <div className="flex justify-center mt-4 space-x-2">
